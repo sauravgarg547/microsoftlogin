@@ -1,12 +1,16 @@
+// Loading.js
 import React from 'react';
-import './Loading.css'; // Ensure you have this CSS file or adjust the path as needed
+import './Loading.css';
 
 const Loading = () => {
-  return (
-    <div className="loading">
-      <div className="spinner"></div>
-    </div>
-  );
+    return (
+        <div className="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    );
 };
 
 export default Loading;
