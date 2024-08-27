@@ -260,7 +260,8 @@ img {
   vertical-align: middle;
 }
 
-/* *Media Queries for Mobile View */ */
+ 
+
 @media screen and (max-width: 600px) {
   html, body {
     background-color: #fff;
