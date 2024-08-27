@@ -54,3 +54,16 @@ body, html {
         transform: scale(1.1);
     }
 }
+
+/* Media Queries for Mobile View */
+@media screen and (max-width: 600px) {
+    .loader {
+        width: 70px;
+        height: 70px;
+    }
+
+    .loader div {
+        width: 30px;
+        height: 30px;
+    }
+}

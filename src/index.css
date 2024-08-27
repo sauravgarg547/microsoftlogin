@@ -260,31 +260,53 @@ img {
   vertical-align: middle;
 }
 
+* Media Queries for Mobile View */
 @media screen and (max-width: 600px) {
   html, body {
-      background-color: #fff;
+    background-color: #fff;
+    font-size: 14px; /* Adjust font size for mobile */
   }
+  
   section {
-      display: block !important;
+    display: block;
+    height: auto; /* Allow height to adjust based on content */
   }
+  
   .auth-wrapper {
-      box-shadow: none !important;
-      padding: 24px !important;
-      width: unset !important;
-      max-width: unset !important;
+    box-shadow: none;
+    padding: 24px;
+    width: 100%; /* Full width */
+    max-width: 100%;
+    margin: 0 auto;
   }
+  
   .opts {
-      box-shadow: none !important;
-      padding: 8px 24px !important;
-      border: 1px solid #999;
-      max-width: calc(100% - 48px);
-      margin: 12% auto !important;
+    box-shadow: none;
+    padding: 8px 24px;
+    border: 1px solid #999;
+    max-width: 100%;
+    margin: 12px auto; /* Adjust margin for centering */
   }
+  
   .footer {
-      justify-content: start;
+    justify-content: start;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    min-height: auto; /* Adjust min-height */
+  }
+  
+  .btn {
+    width: 100%; /* Full width for buttons */
+    padding: 10px; /* Adjust padding */
+    font-size: 16px; /* Adjust font size */
+  }
+  
+  .input {
+    font-size: 14px; /* Adjust font size */
   }
 }
 
 :root {
   --error: #e81123;
 }
+
